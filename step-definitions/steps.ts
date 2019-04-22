@@ -1,36 +1,24 @@
-import { When, Then, AfterAll } from 'cucumber'
+import { When, Then, AfterAll, Before } from 'cucumber'
 import { World } from './world'
 import { expect } from 'chai'
-import { webDriver } from './selenium';
+import { webDriver } from './selenium'
 
-When('I search google for cats', async function() {
+Before(async function() {
   const world = this as World
-  await world.navigate()
-  await world.type('cats')
-  await world.search()
+  await world.navigate()  
 })
 
-Then('I should see a result from wikipedia about cats', async function() {
+When('I search google for {string}', async function(term: string) {
+  const world = this as World
+  await world.search(term)
+})
+
+Then('I should see a result from wikipedia about {string} with a title of {string}', async function(about: string, title: string) {
   const world = this as World
   const term = await world.searchTerm()
-  expect(term).to.equal('cats')
+  expect(term).to.equal(about)
   const wiki = await world.wikipedia()
-  expect(wiki).to.equal('Cat')
-})
-
-When('I search google for dogs', async function() {
-  const world = this as World
-  await world.navigate()
-  await world.type('dogs')
-  await world.search()
-})
-
-Then('I should see a result from wikipedia about dogs', async function() {
-  const world = this as World
-  const term = await world.searchTerm()
-  expect(term).to.equal('dogs')
-  const wiki = await world.wikipedia()
-  expect(wiki).to.equal('Dog')
+  expect(wiki).to.equal(title)
 })
 
 AfterAll(async function() {

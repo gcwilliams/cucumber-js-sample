@@ -33,11 +33,8 @@ export class World {
     await this.navigation.to('https://www.google.co.uk')
   }
 
-  async type(text: string): Promise<void> {
-    await this.term.sendKeys(text)
-  }
-
-  async search(): Promise<void> {
+  async search(term: string): Promise<void> {
+    await this.term.sendKeys(term)
     await this.searchButton.click()
   }
 
