@@ -1,0 +1,21 @@
+{
+  "name": "cucumber-js-sample",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "cucumber-js features/**/*.feature --require step-definitions/**/*.ts --require-module ts-node/register --format node_modules/cucumber-pretty"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "4.1.7",
+    "@types/cucumber": "4.0.5",
+    "@types/node": "11.13.5",
+    "@types/selenium-webdriver": "3.0.15",
+    "chai": "4.2.0",
+    "chromedriver": "2.46.0",
+    "cucumber": "5.1.0",
+    "cucumber-pretty": "1.5.0",
+    "selenium-webdriver": "3.6.0",
+    "ts-node": "8.0.2",
+    "typescript": "3.3.3333"
+  }
+}
