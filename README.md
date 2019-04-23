@@ -1,4 +1,4 @@
-### Cucumber JS Sample
+### Cucumber TS Sample
 
     npm i && npm run test
 
