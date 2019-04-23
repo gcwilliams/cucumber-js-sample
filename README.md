@@ -8,8 +8,6 @@
 
 ##### More
 
-would need more that the console reporter
+you'll probably need more than the console reporter
 
     --format json:/some/path.json
-
-or whatever reporter you need
